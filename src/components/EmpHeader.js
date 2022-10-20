@@ -1,6 +1,6 @@
 function EmpHeader(props) {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", padding: "10px" }}>
       <div style={{ paddingRight: "20px" }}>
         <img
           width="75"

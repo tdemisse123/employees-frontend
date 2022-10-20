@@ -8,7 +8,7 @@ export const EmployeesContext = createContext("Employees");
 
 const AppWrapper = styled.div`
   display: flex;
-  border: 5px solid black;
+  border: 4px solid black;
   padding: 1rem;
   gap: 1rem;
   margin: 60px 160px;
@@ -27,7 +27,6 @@ const StyledTwo = styled.div`
   border: 3px solid brown;
   text-align: justify;
   align-items: center;
-  /* padding: 0 20px; */
 `;
 
 function App() {

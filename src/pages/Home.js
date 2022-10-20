@@ -6,17 +6,17 @@ import { EmployeesContext } from "../App";
 import SearchInput from "../components/SearchInput";
 
 function Home() {
-  const [employees, setEmployees] = useState([]);
   const [employeesCopy, setEmployeesCopy] = useState([]);
-  const { searchInput, handleSelectedEmployee } = useContext(EmployeesContext);
+  const { employees, searchInput, handleSelectedEmployee, handleEmployees } =
+    useContext(EmployeesContext);
 
   const getAllEmployees = async () => {
     const response = await axios.get(
       "http://localhost:5000/api/employees/allemployees"
     );
-    setEmployees(response.data);
     setEmployeesCopy(response.data);
     handleSelectedEmployee(response.data[1]);
+    handleEmployees(response.data);
   };
 
   useEffect(() => {
@@ -25,27 +25,26 @@ function Home() {
 
   useEffect(() => {
     if (searchInput)
-      setEmployees(
+      handleEmployees(
         employeesCopy.filter(
           (x) => x.name.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
         )
       );
-    else setEmployees(employeesCopy);
+    else handleEmployees(employeesCopy);
   }, [searchInput]);
 
   return (
-    <div>
+    <div style={{ margin: "4px 2px" }}>
       <div
         style={{
           border: "3px solid #92a8d1",
-          textAlign: "center",
         }}
       >
         <b>
           <Header title="Employee Directory" />
         </b>
       </div>
-      <div style={{ border: "3px solid green" }}>
+      <div style={{ border: "3px solid green", margin: "4px 2px" }}>
         <SearchInput />
       </div>
       <div style={{ border: "3px solid #BE29EC" }}>
@@ -55,7 +54,13 @@ function Home() {
               handleSelectedEmployee(emp);
             }}
           >
-            <div style={{ border: "2px solid red", display: "flex" }}>
+            <div
+              style={{
+                border: "3px solid red",
+                display: "flex",
+                margin: "4px 2px",
+              }}
+            >
               <EmployeeListItem emp={emp} />
             </div>
           </div>

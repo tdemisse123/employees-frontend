@@ -11,9 +11,12 @@ export default function SearchInput() {
         handleSearchInput(event.target.value);
       }}
       style={{
-        width: "96%",
+        width: "95%",
         padding: " 12px 2px 12px 10px ",
         fontSize: "24px",
+        borderRadius: "8px",
+        margin: "10px 8px",
+        borderColor: "#e0e2e4",
       }}
     />
   );
