@@ -9,13 +9,26 @@ function Employee() {
 
   return (
     <div>
-      <div style={{ border: "3px solid #92a8d1", textAlign: "center" }}>
+      <div
+        style={{
+          border: "3px solid #92a8d1",
+          margin: "4px 2px",
+        }}
+      >
         <b>
           <Header title="Employee" withArrow />
         </b>
       </div>
-      {selectedEmployee && <EmpHeader emp={selectedEmployee} />}
-      {selectedEmployee && <EmployeeDisplay emp={selectedEmployee} />}
+      <div
+        style={{
+          borderRadius: "8px",
+          margin: "35px",
+          border: "1px grey solid",
+        }}
+      >
+        {selectedEmployee && <EmpHeader emp={selectedEmployee} />}
+        {selectedEmployee && <EmployeeDisplay emp={selectedEmployee} />}
+      </div>
     </div>
   );
 }
